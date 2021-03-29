@@ -6,6 +6,11 @@ Jelenleg az alábbi néhány végpont elérhető a szolgáltatáson keresztül:
 - **/character** - az összes karakter meta adatai
 - **/quote** - minden filmbeli idézet
 
+## Rendszer követelmények
+
+Az alábbia szükségesek az alkalmazás futtatásához:
+- **Java 8** 
+- **Maven 3** 
 
 ## Konfigurálás és futtatás
 
