@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "bcd0f77c-d264-414e-9b7a-1ec940bb50bb",
+		"name": "TheOne",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllCharactersFromOneApi",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "dKrpIj5AdzCiq6b8gDze",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://the-one-api.dev/v2/character",
+					"protocol": "https",
+					"host": [
+						"the-one-api",
+						"dev"
+					],
+					"path": [
+						"v2",
+						"character"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCharacterQuotesFromOneApi",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "dKrpIj5AdzCiq6b8gDze",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://the-one-api.dev/v2/character/5cd99d4bde30eff6ebccfbe6/quote",
+					"protocol": "https",
+					"host": [
+						"the-one-api",
+						"dev"
+					],
+					"path": [
+						"v2",
+						"character",
+						"5cd99d4bde30eff6ebccfbe6",
+						"quote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Character",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/character/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"character",
+						"all"
+					]
+				},
+				"description": "s"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Search Character",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"_id\": \"\",\r\n  \"birth\": \"\",\r\n  \"death\": \"3\",\r\n  \"gender\": \"\",\r\n  \"hair\": \"\",\r\n  \"height\": \"\",\r\n  \"name\": \"Ar\",\r\n  \"race\": \"\",\r\n  \"realm\": \"Nú\",\r\n  \"spouse\": \"\",\r\n  \"wikiUrl\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/character/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"character",
+						"all"
+					]
+				},
+				"description": "s"
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllQuoteFromOneApi",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "dKrpIj5AdzCiq6b8gDze",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://the-one-api.dev/v2/quote",
+					"protocol": "https",
+					"host": [
+						"the-one-api",
+						"dev"
+					],
+					"path": [
+						"v2",
+						"quote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Quotes By Character Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/character/5cd99d4bde30eff6ebccfca7/quote",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"character",
+						"5cd99d4bde30eff6ebccfca7",
+						"quote"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
