@@ -43,7 +43,9 @@ the-one-token=dKrpIj5AdzCiq6b8gDze
 Igény esetén végpontokhoz tartozó kéréseket tartalmazó postman export fájl megtalálható itt:
  `documents\TheOne.postman_collection.json`
 
+
 **Swagger**
+
 A végpontok leírása a Swagger dokumentációban megtalálható az alábbi útvonalon amennyiben fut a szerver:
  
  [http://localhost:8080/swagger-ui/index.html#/characters-controller](http://localhost:8080/swagger-ui/index.html#/characters-controller) 
