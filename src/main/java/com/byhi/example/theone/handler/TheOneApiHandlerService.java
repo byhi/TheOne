@@ -4,14 +4,14 @@ import com.byhi.example.theone.dto.CharacterDTO;
 import com.byhi.example.theone.dto.CharactersDTO;
 import com.byhi.example.theone.dto.QuoteDTO;
 import com.byhi.example.theone.dto.QuotesDTO;
+import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class TheOneApiHandler {
+@Service
+public class TheOneApiHandlerService {
     public QuoteDTO[] getQuotesByCharacterId(QuoteDTO[] quoteDTOS, String id) {
         List<QuoteDTO> resultList = Arrays.asList(quoteDTOS).stream()
                 .filter(quote -> id.equals(quote.getCharacter())).collect(Collectors.toList());
@@ -49,6 +49,39 @@ public class TheOneApiHandler {
                 .collect(Collectors.toList());
 
         return resultList.toArray(new CharacterDTO[resultList.size()]);
+    }
+
+    public CharactersDTO sortCharacter(CharactersDTO charactersDTO, String sortType, String fieldName) {
+        List<CharacterDTO> resultList =  Arrays.asList(charactersDTO.getDocs());
+
+        Comparator<CharacterDTO> characterDTOComparator =  this.getComparator(CharacterDTO.class, fieldName);
+        if (characterDTOComparator != null) {
+            if (sortType.equals("desc")) {
+                Collections.sort( resultList,characterDTOComparator.reversed());
+            }else{
+                Collections.sort( resultList,characterDTOComparator);
+            }
+            charactersDTO.setDocs(resultList.toArray(new CharacterDTO[resultList.size()]));
+        }
+
+        return charactersDTO;
+    }
+
+    private Comparator<CharacterDTO> getComparator(Class<CharacterDTO> characterDTOClass, String fieldName) {
+        if (fieldName.equals("_id"))return Comparator.comparing(CharacterDTO::get_id);
+        if (fieldName.equals("height"))return Comparator.comparing(CharacterDTO::getHeight);
+        if (fieldName.equals("race")) return  Comparator.comparing(CharacterDTO::getRace);
+        if (fieldName.equals("gender")) return   Comparator.comparing(CharacterDTO::getGender);
+        if (fieldName.equals("birth")) return   Comparator.comparing(CharacterDTO::getBirth);
+        if (fieldName.equals("spouse")) return   Comparator.comparing(CharacterDTO::getSpouse);
+        if (fieldName.equals("death")) return   Comparator.comparing(CharacterDTO::getDeath);
+        if (fieldName.equals("realm")) return   Comparator.comparing(CharacterDTO::getRealm);
+        if (fieldName.equals("hair")) return   Comparator.comparing(CharacterDTO::getHair);
+        if (fieldName.equals("name")) return   Comparator.comparing(CharacterDTO::getName);
+        if (fieldName.equals("wikiUrl")) return   Comparator.comparing(CharacterDTO::getWikiUrl);
+
+
+        return null;
     }
 
     private List<Predicate<CharacterDTO>> getCharactersPredicates( CharacterDTO characterDTO ){
